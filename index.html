@@ -6,62 +6,39 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
 <title>Ink Design Studio</title>
-
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#F5F4F0;
-  --surface:#FFFFFF;
-  --border:rgba(0,0,0,0.09);
-  --border2:rgba(0,0,0,0.18);
-  --text:#1A1A1A;
-  --text2:#666;
-  --text3:#AAA;
-  --accent:#1A1A1A;
-  --safe-bottom:env(safe-area-inset-bottom);
-  --safe-top:env(safe-area-inset-top);
+  --bg:#F5F4F0;--surface:#FFFFFF;--border:rgba(0,0,0,0.09);--border2:rgba(0,0,0,0.18);
+  --text:#1A1A1A;--text2:#666;--text3:#AAA;--accent:#1A1A1A;
+  --safe-bottom:env(safe-area-inset-bottom);--safe-top:env(safe-area-inset-top);
 }
 html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',sans-serif;color:var(--text);overscroll-behavior:none}
-
-/* ── Layout ── */
 .app{display:flex;flex-direction:column;height:100dvh;max-width:430px;margin:0 auto;position:relative}
 .screen{flex:1;overflow-y:auto;padding-bottom:20px;-webkit-overflow-scrolling:touch}
 .screen::-webkit-scrollbar{display:none}
-
-/* ── Top bar ── */
 .topbar{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:0.5px solid var(--border);padding:calc(var(--safe-top) + 12px) 18px 12px;display:flex;align-items:center;justify-content:space-between}
 .brand{font-size:15px;font-weight:600;letter-spacing:0.03em}
 .brand-sub{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-top:1px}
 .avatar{width:34px;height:34px;border-radius:50%;background:#E8E6E0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--text2);flex-shrink:0}
-
-/* ── Top Tab Bar ── */
 .tabbar{width:100%;background:var(--surface);border-bottom:0.5px solid var(--border);display:flex;z-index:19;overflow-x:auto;scrollbar-width:none}
 .tabbar::-webkit-scrollbar{display:none}
 .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0 10px;cursor:pointer;color:var(--text3);font-size:10px;font-weight:500;letter-spacing:0.03em;transition:color 0.15s;min-width:70px;border-bottom:2px solid transparent}
 .tab.active{color:var(--accent);border-bottom:2px solid var(--accent)}
-
-/* ── Page sections ── */
 .page{padding:18px}
 .greeting{margin-bottom:18px}
 .greeting-name{font-size:22px;font-weight:600;letter-spacing:-0.02em}
 .greeting-sub{font-size:13px;color:var(--text2);margin-top:3px}
-
-/* ── Stat cards ── */
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px}
-.stat-card{background:var(--surface);border:0.5px solid var(--border);border-radius:14px;padding:14px;active:scale(0.97);cursor:pointer;transition:transform 0.1s}
+.stat-card{background:var(--surface);border:0.5px solid var(--border);border-radius:14px;padding:14px;cursor:pointer;transition:transform 0.1s}
 .stat-card:active{transform:scale(0.97)}
 .stat-label{font-size:11px;color:var(--text2);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
-.stat-label i{font-size:11px;color:var(--text3)}
 .stat-value{font-size:26px;font-weight:600;letter-spacing:-0.03em}
 .stat-delta{font-size:10.5px;color:var(--text3);margin-top:4px}
-
-/* ── Section header ── */
 .sec-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .sec-title{font-size:14px;font-weight:600}
 .btn-add{display:flex;align-items:center;gap:5px;font-size:12px;padding:6px 12px;border:0.5px solid var(--border2);border-radius:20px;background:var(--surface);color:var(--text);cursor:pointer;font-family:inherit;font-weight:500}
 .btn-add:active{background:var(--bg)}
-
-/* ── Project cards ── */
 .proj-card{background:var(--surface);border:0.5px solid var(--border);border-radius:14px;padding:14px 16px;margin-bottom:10px;cursor:pointer;transition:border-color 0.15s}
 .proj-card:active{border-color:var(--border2)}
 .proj-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
@@ -78,16 +55,11 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
 .card-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;padding:8px;border-radius:10px;border:0.5px solid var(--border);background:var(--bg);font-size:12px;font-weight:500;color:var(--text2);cursor:pointer;font-family:inherit}
 .card-btn:active{background:#EAEAEA}
 .card-btn.danger{color:#C0392B;border-color:#F5C0BB;background:#FDF5F4}
-.card-btn.danger:active{background:#FAE0DE}
-
-/* ── Badge ── */
 .badge{display:inline-flex;align-items:center;font-size:10.5px;padding:3px 10px;border-radius:20px;font-weight:600}
 .badge-active{background:#EAF3DE;color:#3B6D11}
 .badge-review{background:#FAEEDA;color:#854F0B}
 .badge-hold{background:#F1EFE8;color:#5F5E5A}
 .badge-done{background:#E1F5EE;color:#0F6E56}
-
-/* ── Activity ── */
 .activity-list{margin-bottom:10px}
 .act-item{display:flex;gap:10px;padding:12px 0;border-bottom:0.5px solid var(--border)}
 .act-item:first-child{padding-top:0}
@@ -97,14 +69,11 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
 .act-time{font-size:11px;color:var(--text3);margin-top:2px}
 .act-del{background:none;border:none;cursor:pointer;padding:4px;color:var(--text3);font-size:16px;line-height:1;flex-shrink:0}
 .act-del:active{color:#C0392B}
-
 .act-add{display:flex;gap:8px;padding-top:12px}
 .act-input{flex:1;padding:10px 13px;border:0.5px solid var(--border2);border-radius:12px;font-size:13px;font-family:inherit;background:var(--surface);color:var(--text);outline:none;-webkit-appearance:none}
 .act-input:focus{border-color:var(--accent)}
 .btn-post{padding:10px 14px;border:none;border-radius:12px;background:var(--accent);color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
 .btn-post:active{background:#333}
-
-/* ── Deadlines ── */
 .dl-card{background:var(--surface);border:0.5px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:22px}
 .dl-row{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:0.5px solid var(--border)}
 .dl-row:last-child{border-bottom:none}
@@ -114,8 +83,6 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
 .dl-date{font-size:12px;color:var(--text2)}
 .dl-days-urgent{font-size:11px;color:#854F0B;margin-top:2px;font-weight:500}
 .dl-days-ok{font-size:11px;color:var(--text3);margin-top:2px}
-
-/* ── Modal / Sheet ── */
 .sheet-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:50;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:65px}
 .sheet{background:var(--surface);border-radius:20px 20px 0 0;padding:0 0 calc(80px + var(--safe-bottom));max-height:85dvh;overflow-y:auto}
 .sheet-handle{width:36px;height:4px;background:#DDD;border-radius:2px;margin:12px auto 0}
@@ -135,13 +102,15 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
 .btn-save{flex:2;padding:14px;border:none;border-radius:14px;background:var(--accent);color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
 .btn-cancel:active{background:#E5E3DF}
 .btn-save:active{background:#333}
-
-/* ── Toast ── */
 .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(10px);background:var(--accent);color:#fff;padding:10px 20px;border-radius:20px;font-size:13px;font-weight:500;white-space:nowrap;opacity:0;transition:all 0.2s;pointer-events:none;z-index:99}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* ── Empty ── */
 .empty{text-align:center;padding:40px 20px;color:var(--text3);font-size:14px}
+.sync-bar{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text3);padding:6px 18px;background:var(--surface);border-bottom:0.5px solid var(--border)}
+.sync-dot{width:6px;height:6px;border-radius:50%;background:#CCC;flex-shrink:0}
+.sync-dot.synced{background:#4CAF50}
+.sync-dot.syncing{background:#FF9800;animation:pulse 1s infinite}
+.sync-dot.error{background:#F44336}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
 </style>
 </head>
 <body>
@@ -153,7 +122,10 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
     </div>
     <div class="avatar">LK</div>
   </div>
-
+  <div class="sync-bar">
+    <div class="sync-dot" id="sync-dot"></div>
+    <span id="sync-status">正在连接...</span>
+  </div>
   <nav class="tabbar">
     <div class="tab active" data-tab="home" onclick="switchTab('home')">总览</div>
     <div class="tab" data-tab="projects" onclick="switchTab('projects')">项目</div>
@@ -162,12 +134,27 @@ html,body{height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSys
   </nav>
   <div class="screen" id="screen"></div>
 </div>
-
 <div id="sheet-root"></div>
-<div class="toast" id="toast">已保存 ✓</div>
+<div class="toast" id="toast">已同步 ✓</div>
 
-<script>
-const KEY = 'ink_mobile_v1';
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDEDH9vYIzF-3XL2Xjdq9fUbG74nor824",
+  authDomain: "ink-design-client-portal.firebaseapp.com",
+  projectId: "ink-design-client-portal",
+  storageBucket: "ink-design-client-portal.firebasestorage.app",
+  messagingSenderId: "1078100053597",
+  appId: "1:1078100053597:web:7dff3c0746d89e00f73db3",
+  measurementId: "G-CHCJS8YX8S"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const DOC = doc(db, 'portal', 'main');
+
 const defaults = {
   stats: {active:6, pending:3, invoiced:'48,500', completed:14},
   projects: [
@@ -184,18 +171,46 @@ const defaults = {
   ],
 };
 
-let state = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || JSON.parse(JSON.stringify(defaults)); } catch { return JSON.parse(JSON.stringify(defaults)); } })();
+let state = JSON.parse(JSON.stringify(defaults));
 let currentTab = 'home';
+let isSyncing = false;
 
-const badges = {
-  active:{cls:'badge-active',label:'进行中'},
-  review:{cls:'badge-review',label:'审核中'},
-  hold:{cls:'badge-hold',label:'暂停'},
-  done:{cls:'badge-done',label:'收尾中'},
-};
+function setSyncStatus(status) {
+  const dot = document.getElementById('sync-dot');
+  const label = document.getElementById('sync-status');
+  dot.className = 'sync-dot ' + status;
+  if(status === 'synced') label.textContent = '已同步';
+  else if(status === 'syncing') label.textContent = '同步中...';
+  else if(status === 'error') label.textContent = '连接失败，使用本地数据';
+}
 
-function save() {
-  localStorage.setItem(KEY, JSON.stringify(state));
+// Listen for realtime updates
+onSnapshot(DOC, (snap) => {
+  if(snap.exists()) {
+    state = snap.data();
+    setSyncStatus('synced');
+    render();
+  } else {
+    // First time: push defaults
+    setDoc(DOC, defaults).then(() => setSyncStatus('synced'));
+  }
+}, () => {
+  setSyncStatus('error');
+  render();
+});
+
+async function save() {
+  setSyncStatus('syncing');
+  try {
+    await setDoc(DOC, state);
+    setSyncStatus('synced');
+    showToast();
+  } catch(e) {
+    setSyncStatus('error');
+  }
+}
+
+function showToast() {
   const t = document.getElementById('toast');
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 1800);
@@ -204,18 +219,25 @@ function save() {
 function daysAway(d) { return Math.round((new Date(d) - new Date()) / 86400000); }
 function nowStr() { const n = new Date(); return '今天 '+n.getHours()+':'+String(n.getMinutes()).padStart(2,'0'); }
 
-function switchTab(tab) {
+window.switchTab = function(tab) {
   currentTab = tab;
   document.querySelectorAll('.tab').forEach(el => el.classList.toggle('active', el.dataset.tab === tab));
   render();
-}
+};
+
+const badges = {
+  active:{cls:'badge-active',label:'进行中'},
+  review:{cls:'badge-review',label:'审核中'},
+  hold:{cls:'badge-hold',label:'暂停'},
+  done:{cls:'badge-done',label:'收尾中'},
+};
 
 function render() {
   const s = document.getElementById('screen');
-  if (currentTab === 'home') s.innerHTML = renderHome();
-  else if (currentTab === 'projects') s.innerHTML = renderProjects();
-  else if (currentTab === 'activity') s.innerHTML = renderActivity();
-  else if (currentTab === 'deadlines') s.innerHTML = renderDeadlines();
+  if(currentTab==='home') s.innerHTML = renderHome();
+  else if(currentTab==='projects') s.innerHTML = renderProjects();
+  else if(currentTab==='activity') s.innerHTML = renderActivity();
+  else if(currentTab==='deadlines') s.innerHTML = renderDeadlines();
 }
 
 function renderHome() {
@@ -227,30 +249,27 @@ function renderHome() {
     </div>
     <div class="stats-grid">
       <div class="stat-card" onclick="openStatSheet('active')">
-        <div class="stat-label">进行中 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10-10-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg></div>
+        <div class="stat-label">进行中 ✏️</div>
         <div class="stat-value">${state.stats.active}</div>
         <div class="stat-delta">点击更新</div>
       </div>
       <div class="stat-card" onclick="openStatSheet('pending')">
-        <div class="stat-label">待审批 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10-10-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg></div>
+        <div class="stat-label">待审批 ✏️</div>
         <div class="stat-value">${state.stats.pending}</div>
         <div class="stat-delta">点击更新</div>
       </div>
       <div class="stat-card" onclick="openStatSheet('invoiced')">
-        <div class="stat-label">已开票 MYR <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10-10-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg></div>
+        <div class="stat-label">已开票 MYR ✏️</div>
         <div class="stat-value" style="font-size:20px">${state.stats.invoiced}</div>
         <div class="stat-delta">点击更新</div>
       </div>
       <div class="stat-card" onclick="openStatSheet('completed')">
-        <div class="stat-label">已完成 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10-10-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg></div>
+        <div class="stat-label">已完成 ✏️</div>
         <div class="stat-value">${state.stats.completed}</div>
         <div class="stat-delta">自 2025 年起</div>
       </div>
     </div>
-
-    <div class="sec-header">
-      <div class="sec-title">即将到期</div>
-    </div>
+    <div class="sec-header"><div class="sec-title">即将到期</div></div>
     <div class="dl-card">
       ${upcoming.map(p => {
         const d = daysAway(p.deadline);
@@ -260,7 +279,6 @@ function renderHome() {
         </div>`;
       }).join('')}
     </div>
-
     <div class="sec-header"><div class="sec-title">最新动态</div></div>
     ${state.activities.slice(0,3).map(a=>`
     <div class="act-item" style="padding:12px 0;border-bottom:0.5px solid var(--border)">
@@ -274,9 +292,9 @@ function renderProjects() {
   return `<div class="page">
     <div class="sec-header">
       <div class="sec-title">所有项目</div>
-      <button class="btn-add" onclick="openProjectSheet(null)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> 新增</button>
+      <button class="btn-add" onclick="openProjectSheet(null)">＋ 新增</button>
     </div>
-    ${state.projects.length === 0 ? '<div class="empty">暂无项目，点击新增</div>' : ''}
+    ${state.projects.length===0?'<div class="empty">暂无项目</div>':''}
     ${state.projects.map(p=>`
     <div class="proj-card">
       <div class="proj-card-top">
@@ -293,8 +311,8 @@ function renderProjects() {
       <div class="prog-wrap"><div class="prog-bar" style="width:${p.progress}%"></div></div>
       <div class="prog-label">${p.progress}% 完成</div>
       <div class="proj-card-btns">
-        <button class="card-btn" onclick="openProjectSheet(${p.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10-10-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg> 编辑</button>
-        <button class="card-btn danger" onclick="delProject(${p.id})"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg> 删除</button>
+        <button class="card-btn" onclick="openProjectSheet(${p.id})">✏️ 编辑</button>
+        <button class="card-btn danger" onclick="delProject(${p.id})">🗑 删除</button>
       </div>
     </div>`).join('')}
   </div>`;
@@ -308,11 +326,11 @@ function renderActivity() {
       <div class="act-item">
         <div class="act-dot"></div>
         <div class="act-body"><div class="act-text">${a.text}</div><div class="act-time">${a.time}</div></div>
-        <button class="act-del" onclick="delActivity(${i})"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        <button class="act-del" onclick="delActivity(${i})">✕</button>
       </div>`).join('')}
     </div>
     <div class="act-add">
-      <input class="act-input" id="act-input" placeholder="输入新动态..." />
+      <input class="act-input" id="act-input" placeholder="输入新动态..."/>
       <button class="btn-post" onclick="addActivity()">发布</button>
     </div>
   </div>`;
@@ -340,8 +358,7 @@ function renderDeadlines() {
   </div>`;
 }
 
-/* ── Stat Sheet ── */
-function openStatSheet(key) {
+window.openStatSheet = function(key) {
   const labels = {active:'进行中项目',pending:'待审批',invoiced:'已开票 (MYR)',completed:'已完成'};
   document.getElementById('sheet-root').innerHTML = `
     <div class="sheet-overlay" onclick="if(event.target===this)closeSheet()">
@@ -351,7 +368,7 @@ function openStatSheet(key) {
         <div class="sheet-body">
           <div class="field">
             <label class="field-label">新数值</label>
-            <input class="field-input" id="f-stat" value="${state.stats[key]}" inputmode="decimal" />
+            <input class="field-input" id="f-stat" value="${state.stats[key]}" inputmode="decimal"/>
           </div>
         </div>
         <div class="sheet-btns">
@@ -361,14 +378,13 @@ function openStatSheet(key) {
       </div>
     </div>`;
   setTimeout(()=>document.getElementById('f-stat').focus(),100);
-}
-function saveStat(key) {
+};
+window.saveStat = function(key) {
   state.stats[key] = document.getElementById('f-stat').value;
   save(); closeSheet(); render();
-}
+};
 
-/* ── Project Sheet ── */
-function openProjectSheet(id) {
+window.openProjectSheet = function(id) {
   const p = id ? state.projects.find(x=>x.id===id) : {id:0,name:'',client:'',stage:'',deadline:'',progress:0,status:'active'};
   document.getElementById('sheet-root').innerHTML = `
     <div class="sheet-overlay" onclick="if(event.target===this)closeSheet()">
@@ -376,28 +392,16 @@ function openProjectSheet(id) {
         <div class="sheet-handle"></div>
         <div class="sheet-title">${id?'编辑项目':'新增项目'}</div>
         <div class="sheet-body">
-          <div class="field">
-            <label class="field-label">项目名称</label>
-            <input class="field-input" id="f-name" value="${p.name}" placeholder="项目名称" />
-          </div>
-          <div class="field">
-            <label class="field-label">客户</label>
-            <input class="field-input" id="f-client" value="${p.client}" placeholder="客户名称" />
-          </div>
+          <div class="field"><label class="field-label">项目名称</label><input class="field-input" id="f-name" value="${p.name}" placeholder="项目名称"/></div>
+          <div class="field"><label class="field-label">客户</label><input class="field-input" id="f-client" value="${p.client}" placeholder="客户名称"/></div>
           <div class="field-row2">
-            <div class="field">
-              <label class="field-label">当前阶段</label>
-              <input class="field-input" id="f-stage" value="${p.stage}" placeholder="例：概念设计" />
-            </div>
-            <div class="field">
-              <label class="field-label">截止日期</label>
-              <input class="field-input" id="f-deadline" type="date" value="${p.deadline}" />
-            </div>
+            <div class="field"><label class="field-label">当前阶段</label><input class="field-input" id="f-stage" value="${p.stage}" placeholder="例：概念设计"/></div>
+            <div class="field"><label class="field-label">截止日期</label><input class="field-input" id="f-deadline" type="date" value="${p.deadline}"/></div>
           </div>
           <div class="field">
             <label class="field-label">进度</label>
             <div class="range-wrap">
-              <input type="range" min="0" max="100" step="1" value="${p.progress}" id="f-prog" oninput="document.getElementById('rv').textContent=this.value+'%'" />
+              <input type="range" min="0" max="100" step="1" value="${p.progress}" id="f-prog" oninput="document.getElementById('rv').textContent=this.value+'%'"/>
               <div class="range-val" id="rv">${p.progress}%</div>
             </div>
           </div>
@@ -417,8 +421,8 @@ function openProjectSheet(id) {
         </div>
       </div>
     </div>`;
-}
-function saveProject(id) {
+};
+window.saveProject = function(id) {
   const proj = {
     id: id||Date.now(),
     name: document.getElementById('f-name').value.trim(),
@@ -432,28 +436,25 @@ function saveProject(id) {
   else state.projects.push(proj);
   state.stats.active = state.projects.filter(p=>p.status!=='done').length;
   save(); closeSheet(); render();
-}
-function delProject(id) {
+};
+window.delProject = function(id) {
   if(!confirm('确定删除此项目？')) return;
   state.projects = state.projects.filter(p=>p.id!==id);
   state.stats.active = state.projects.filter(p=>p.status!=='done').length;
   save(); render();
-}
-
-/* ── Activity ── */
-function addActivity() {
+};
+window.addActivity = function() {
   const input = document.getElementById('act-input');
   const txt = input.value.trim();
   if(!txt) return;
   state.activities.unshift({text:txt, time:nowStr()});
   save(); render();
-}
-function delActivity(i) {
+};
+window.delActivity = function(i) {
   state.activities.splice(i,1);
   save(); render();
-}
-
-function closeSheet() { document.getElementById('sheet-root').innerHTML=''; }
+};
+window.closeSheet = function() { document.getElementById('sheet-root').innerHTML=''; };
 
 render();
 </script>
